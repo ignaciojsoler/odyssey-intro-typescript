@@ -1,0 +1,18 @@
+# idof type ID!
+# titleof type String!
+# numOfBedsof type Int
+# costPerNightof type Float
+# closedForBookingsof type Boolean
+
+"A particular intergalactic location available for booking"
+type Listing {
+  id: ID!
+  title: String
+  numOfBeds: Int
+  costPerNight: Float
+  closedForBookings: Boolean
+}
+
+type Query {
+  featuredListings: [Listing!]!
+}
