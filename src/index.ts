@@ -4,6 +4,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { readFileSync } from 'fs';
 import path from 'path';
 import { gql } from 'graphql-tag';
+import { resolvers } from './resolvers';
 
 const typeDefs = gql(
   readFileSync(path.resolve(__dirname, './schema.graphql'), {
@@ -12,7 +13,7 @@ const typeDefs = gql(
 );
 
 const startApolloServer = async () => {
-  const server = new ApolloServer({ typeDefs });
+  const server = new ApolloServer({ typeDefs, resolvers });
   const { url } = await startStandaloneServer(server);
   console.log(`
     🚀  Server is running!
