@@ -11,8 +11,12 @@ type Listing {
   numOfBeds: Int
   costPerNight: Float
   closedForBookings: Boolean
+  description: String!
 }
 
 type Query {
+  "Returns the featured listings"
   featuredListings: [Listing!]!
+  "Returns the details about this listing"
+  listing(id: ID!): Listing
 }
