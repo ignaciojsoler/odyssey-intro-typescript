@@ -12,6 +12,13 @@ type Listing {
   costPerNight: Float
   closedForBookings: Boolean
   description: String!
+  amenities: [Amenity!]!
+}
+
+type Amenity {
+  id: ID!
+  category: String!
+  name: String!
 }
 
 type Query {
