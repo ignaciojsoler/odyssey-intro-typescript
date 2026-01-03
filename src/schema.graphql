@@ -27,3 +27,34 @@ type Query {
   "Returns the details about this listing"
   listing(id: ID!): Listing
 }
+
+type CreateListingResponse {
+  "The HTTP status code"
+  code: Int!
+  "Whether the listing was created successfully"
+  success: Boolean!
+  "The message of the response"
+  message: String!
+  "The listing that was created"
+  listing: Listing
+}
+
+type Mutation {
+  "Adds a new listing"
+  createListing(createListingInput: CreateListingInput!): CreateListingResponse!
+}
+
+input CreateListingInput {
+  "The title of the listing"
+  title: String!
+  "The description of the listing"
+  description: String!
+  "The number of beds in the listing"
+  numOfBeds: Int!
+  "The cost per night of the listing"
+  costPerNight: Float!
+  "Whether the listing is closed for bookings"
+  closedForBookings: Boolean!
+  "The amenities of the listing"
+  amenities: [ID!]!
+}
